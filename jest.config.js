@@ -1,7 +1,7 @@
 module.exports = {
   roots: ['src/'],
 
-  collectCoverage: true,
+  collectCoverage: false,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: ['src/**/*.ts'],
