@@ -44,7 +44,7 @@ const makeSignUpController = (): SignUpControllerTypes => {
 }
 
 describe('SignUp Controller', () => {
-  test('it should return 400 if no name is provided', async () => {
+  it('should return 400 if no name is provided', async () => {
     const { signUpController } = makeSignUpController()
     const httpRequest = {
       body: {
@@ -58,7 +58,7 @@ describe('SignUp Controller', () => {
     expect(httpResponse.body).toEqual(new MissingParamError('name'))
   })
 
-  test('it should return 400 if no email is provided', async () => {
+  it('should return 400 if no email is provided', async () => {
     const { signUpController } = makeSignUpController()
     const httpRequest = {
       body: {
@@ -72,7 +72,7 @@ describe('SignUp Controller', () => {
     expect(httpResponse.body).toEqual(new MissingParamError('email'))
   })
 
-  test('it should return 400 if no password is provided', async () => {
+  it('should return 400 if no password is provided', async () => {
     const { signUpController } = makeSignUpController()
     const httpRequest = {
       body: {
@@ -86,7 +86,7 @@ describe('SignUp Controller', () => {
     expect(httpResponse.body).toEqual(new MissingParamError('password'))
   })
 
-  test('it should return 400 if no password confirmation is provided', async () => {
+  it('should return 400 if no password confirmation is provided', async () => {
     const { signUpController } = makeSignUpController()
     const httpRequest = {
       body: {
@@ -100,7 +100,7 @@ describe('SignUp Controller', () => {
     expect(httpResponse.body).toEqual(new MissingParamError('passwordConfirmation'))
   })
 
-  test('it should return 400 if password confirmation fails', async () => {
+  it('should return 400 if password confirmation fails', async () => {
     const { signUpController } = makeSignUpController()
     const httpRequest = {
       body: {
@@ -115,7 +115,7 @@ describe('SignUp Controller', () => {
     expect(httpResponse.body).toEqual(new InvalidParamError('passwordConfirmation'))
   })
 
-  test('it should return 400 if an invalid email is provided', async () => {
+  it('should return 400 if an invalid email is provided', async () => {
     const { signUpController, emailValidatorStub } = makeSignUpController()
     jest.spyOn(emailValidatorStub, 'isValid').mockReturnValueOnce(false)
     const httpRequest = {
@@ -131,7 +131,7 @@ describe('SignUp Controller', () => {
     expect(httpResponse.body).toEqual(new InvalidParamError('email'))
   })
 
-  test('it should call EmailValidator with correct email', async () => {
+  it('should call EmailValidator with correct email', async () => {
     const { signUpController, emailValidatorStub } = makeSignUpController()
     const isValidSpy = jest.spyOn(emailValidatorStub, 'isValid')
     const httpRequest = {
@@ -146,7 +146,7 @@ describe('SignUp Controller', () => {
     expect(isValidSpy).toHaveBeenCalledWith('any_email@mail.com')
   })
 
-  test('it should return 500 if EmailValidator throws', async () => {
+  it('should return 500 if EmailValidator throws', async () => {
     const { signUpController, emailValidatorStub } = makeSignUpController()
     jest.spyOn(emailValidatorStub, 'isValid').mockImplementationOnce(() => {
       throw new Error()
@@ -165,7 +165,7 @@ describe('SignUp Controller', () => {
     expect(httpResponse.body).toEqual(new ServerError())
   })
 
-  test('it should return 500 if AddAccount throws', async () => {
+  it('should return 500 if AddAccount throws', async () => {
     const { signUpController, addAccountStub } = makeSignUpController()
     jest.spyOn(addAccountStub, 'add').mockImplementationOnce(async () => {
       return await new Promise((resolve, reject) => { reject(new Error()) })
@@ -184,7 +184,7 @@ describe('SignUp Controller', () => {
     expect(httpResponse.body).toEqual(new ServerError())
   })
 
-  test('it should call AddAccount with correct values', async () => {
+  it('should call AddAccount with correct values', async () => {
     const { signUpController, addAccountStub } = makeSignUpController()
     const addSpy = jest.spyOn(addAccountStub, 'add')
     const httpRequest = {
@@ -203,7 +203,7 @@ describe('SignUp Controller', () => {
     })
   })
 
-  test('it should return 200 if valid data is provided', async () => {
+  it('should return 200 if valid data is provided', async () => {
     const { signUpController } = makeSignUpController()
     const httpRequest = {
       body: {
