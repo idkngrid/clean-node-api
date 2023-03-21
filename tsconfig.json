@@ -8,5 +8,5 @@
         "strictNullChecks": true,
         "rootDir": "src"
     },
-    "include": ["src"]
+    "include": ["src", "jest-unit-config.js"]
 }

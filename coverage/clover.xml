@@ -1,11 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1675983789891" clover="3.2.0">
-  <project timestamp="1675983789892" name="All files">
-    <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="3" coveredelements="3" complexity="0" loc="2" ncloc="2" packages="1" files="1" classes="1"/>
-    <file name="signup.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/presentation/controllers/signup.ts">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
-    </file>
+<coverage generated="1679388501784" clover="3.2.0">
+  <project timestamp="1679388501784" name="All files">
+    <metrics statements="36" coveredstatements="36" conditionals="3" coveredconditionals="3" methods="8" coveredmethods="8" elements="47" coveredelements="47" complexity="0" loc="36" ncloc="36" packages="3" files="5" classes="5"/>
+    <package name="controllers.signup">
+      <metrics statements="20" coveredstatements="20" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <file name="signup.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/presentation/controllers/signup/signup.ts">
+        <metrics statements="20" coveredstatements="20" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="38" type="cond" truecount="1" falsecount="0"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="23" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="errors">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="invalid-param-error.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/presentation/errors/invalid-param-error.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+      <file name="missing-param-error.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/presentation/errors/missing-param-error.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
+      </file>
+      <file name="server-error.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/presentation/errors/server-error.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="helpers">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="http-helper.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/presentation/helpers/http-helper.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>
