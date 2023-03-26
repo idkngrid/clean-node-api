@@ -6,7 +6,10 @@
         "esModuleInterop": true,
         "allowJs": true,
         "strictNullChecks": true,
-        "rootDir": "src"
     },
-    "include": ["src", "jest-unit-config.js"]
+    "include": ["src"],
+    "exclude": [
+        "**/*.spec.ts",
+        "**/*.test.ts"
+      ]
 }
