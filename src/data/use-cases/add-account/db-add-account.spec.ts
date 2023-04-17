@@ -6,14 +6,17 @@ interface SignUpControllerTypes {
   encrypterStub: Encrypter
 }
 
-const makeSignUpController = (): SignUpControllerTypes => {
-  class EncrypterStub {
+const makeEncrypter = (): Encrypter => {
+  class EncrypterStub implements Encrypter {
     async encrypt (value: string): Promise<string> {
       return await new Promise(resolve => { resolve('hashed_password') })
     }
   }
+  return new EncrypterStub()
+}
 
-  const encrypterStub = new EncrypterStub()
+const makeSignUpController = (): SignUpControllerTypes => {
+  const encrypterStub = makeEncrypter()
   const signUpController = new DbAddAccount(encrypterStub)
   return {
     signUpController,
