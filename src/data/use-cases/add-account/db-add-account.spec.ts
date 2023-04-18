@@ -1,9 +1,19 @@
 import { DbAddAccount } from './db-add-account'
-import { type Encrypter } from './db-add-account-protocols'
+import { type AccountModel, type AddAccountModel, type AddAccountRepository, type Encrypter } from './db-add-account-protocols'
 
-interface SignUpControllerTypes {
-  signUpController: DbAddAccount
-  encrypterStub: Encrypter
+const makeAddAccountRepository = (): AddAccountRepository => {
+  class AddAccountRepositoryStub implements AddAccountRepository {
+    async add (accountData: AddAccountModel): Promise<AccountModel> {
+      const fakeAccount = {
+        id: 'valid_id',
+        name: 'valid_name',
+        email: 'valid_email',
+        password: 'hashed_password'
+      }
+      return await new Promise(resolve => { resolve(fakeAccount) })
+    }
+  }
+  return new AddAccountRepositoryStub()
 }
 
 const makeEncrypter = (): Encrypter => {
@@ -15,12 +25,20 @@ const makeEncrypter = (): Encrypter => {
   return new EncrypterStub()
 }
 
+interface SignUpControllerTypes {
+  signUpController: DbAddAccount
+  encrypterStub: Encrypter
+  addAccountRepositoryStub: AddAccountRepository
+}
+
 const makeSignUpController = (): SignUpControllerTypes => {
   const encrypterStub = makeEncrypter()
-  const signUpController = new DbAddAccount(encrypterStub)
+  const addAccountRepositoryStub = makeAddAccountRepository()
+  const signUpController = new DbAddAccount(encrypterStub, addAccountRepositoryStub)
   return {
     signUpController,
-    encrypterStub
+    encrypterStub,
+    addAccountRepositoryStub
   }
 }
 
@@ -47,5 +65,21 @@ describe('DbAddAccount Usecase', () => {
     }
     const promise = signUpController.add(accountData)
     await expect(promise).rejects.toThrow()
+  })
+
+  it('should call AddAccountRepository with correct values', async () => {
+    const { signUpController, addAccountRepositoryStub } = makeSignUpController()
+    const addSpy = jest.spyOn(addAccountRepositoryStub, 'add')
+    const accountData = {
+      name: 'valid_name',
+      email: 'valid_email',
+      password: 'valid_password'
+    }
+    await signUpController.add(accountData)
+    expect(addSpy).toHaveBeenCalledWith({
+      name: 'valid_name',
+      email: 'valid_email',
+      password: 'hashed_password'
+    })
   })
 })
