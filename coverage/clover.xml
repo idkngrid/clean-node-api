@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1682691676073" clover="3.2.0">
-  <project timestamp="1682691676073" name="All files">
-    <metrics statements="49" coveredstatements="45" conditionals="3" coveredconditionals="3" methods="11" coveredmethods="11" elements="63" coveredelements="59" complexity="0" loc="49" ncloc="49" packages="5" files="8" classes="8"/>
+<coverage generated="1682701841120" clover="3.2.0">
+  <project timestamp="1682701841121" name="All files">
+    <metrics statements="54" coveredstatements="50" conditionals="3" coveredconditionals="3" methods="13" coveredmethods="13" elements="70" coveredelements="66" complexity="0" loc="54" ncloc="54" packages="6" files="9" classes="9"/>
     <package name="data.use-cases.add-account">
       <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="db-add-account-protocols.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/data/use-cases/add-account/db-add-account-protocols.ts">
@@ -19,6 +19,17 @@
         <line num="13" count="5" type="stmt"/>
         <line num="14" count="4" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="infra.criptography">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="bcrypt-adapter.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/infra/criptography/bcrypt-adapter.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
       </file>
     </package>
     <package name="presentation.controllers.signup">

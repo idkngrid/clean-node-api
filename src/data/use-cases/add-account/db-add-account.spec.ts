@@ -25,18 +25,18 @@ const makeEncrypter = (): Encrypter => {
   return new EncrypterStub()
 }
 
-interface SignUpControllerTypes {
-  signUpController: DbAddAccount
+interface SutTypes {
+  sut: DbAddAccount
   encrypterStub: Encrypter
   addAccountRepositoryStub: AddAccountRepository
 }
 
-const makeSignUpController = (): SignUpControllerTypes => {
+const makeSut = (): SutTypes => {
   const encrypterStub = makeEncrypter()
   const addAccountRepositoryStub = makeAddAccountRepository()
-  const signUpController = new DbAddAccount(encrypterStub, addAccountRepositoryStub)
+  const sut = new DbAddAccount(encrypterStub, addAccountRepositoryStub)
   return {
-    signUpController,
+    sut,
     encrypterStub,
     addAccountRepositoryStub
   }
@@ -44,38 +44,38 @@ const makeSignUpController = (): SignUpControllerTypes => {
 
 describe('DbAddAccount Usecase', () => {
   it('should call Encrypter with correct password', async () => {
-    const { signUpController, encrypterStub } = makeSignUpController()
+    const { sut, encrypterStub } = makeSut()
     const encryptSpy = jest.spyOn(encrypterStub, 'encrypt')
     const accountData = {
       name: 'valid_name',
       email: 'valid_email',
       password: 'valid_password'
     }
-    await signUpController.add(accountData)
+    await sut.add(accountData)
     expect(encryptSpy).toHaveBeenCalledWith('valid_password')
   })
 
   it('should throw if Encrypter throws', async () => {
-    const { signUpController, encrypterStub } = makeSignUpController()
+    const { sut, encrypterStub } = makeSut()
     jest.spyOn(encrypterStub, 'encrypt').mockReturnValueOnce(new Promise((resolve, reject) => { reject(new Error()) }))
     const accountData = {
       name: 'valid_name',
       email: 'valid_email',
       password: 'valid_password'
     }
-    const promise = signUpController.add(accountData)
+    const promise = sut.add(accountData)
     await expect(promise).rejects.toThrow()
   })
 
   it('should call AddAccountRepository with correct values', async () => {
-    const { signUpController, addAccountRepositoryStub } = makeSignUpController()
+    const { sut, addAccountRepositoryStub } = makeSut()
     const addSpy = jest.spyOn(addAccountRepositoryStub, 'add')
     const accountData = {
       name: 'valid_name',
       email: 'valid_email',
       password: 'valid_password'
     }
-    await signUpController.add(accountData)
+    await sut.add(accountData)
     expect(addSpy).toHaveBeenCalledWith({
       name: 'valid_name',
       email: 'valid_email',
@@ -84,25 +84,25 @@ describe('DbAddAccount Usecase', () => {
   })
 
   it('should throw if AddAccountRepository throws', async () => {
-    const { signUpController, addAccountRepositoryStub } = makeSignUpController()
+    const { sut, addAccountRepositoryStub } = makeSut()
     jest.spyOn(addAccountRepositoryStub, 'add').mockReturnValueOnce(new Promise((resolve, reject) => { reject(new Error()) }))
     const accountData = {
       name: 'valid_name',
       email: 'valid_email',
       password: 'valid_password'
     }
-    const promise = signUpController.add(accountData)
+    const promise = sut.add(accountData)
     await expect(promise).rejects.toThrow()
   })
 
   it('should return an account on success', async () => {
-    const { signUpController } = makeSignUpController()
+    const { sut } = makeSut()
     const accountData = {
       name: 'valid_name',
       email: 'valid_email',
       password: 'valid_password'
     }
-    const account = await signUpController.add(accountData)
+    const account = await sut.add(accountData)
     expect(account).toEqual({
       id: 'valid_id',
       name: 'valid_name',
