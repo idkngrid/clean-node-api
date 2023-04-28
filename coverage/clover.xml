@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1682701841120" clover="3.2.0">
-  <project timestamp="1682701841121" name="All files">
-    <metrics statements="54" coveredstatements="50" conditionals="3" coveredconditionals="3" methods="13" coveredmethods="13" elements="70" coveredelements="66" complexity="0" loc="54" ncloc="54" packages="6" files="9" classes="9"/>
+<coverage generated="1682708080805" clover="3.2.0">
+  <project timestamp="1682708080805" name="All files">
+    <metrics statements="53" coveredstatements="53" conditionals="3" coveredconditionals="3" methods="13" coveredmethods="13" elements="69" coveredelements="69" complexity="0" loc="53" ncloc="53" packages="6" files="9" classes="9"/>
     <package name="data.use-cases.add-account">
-      <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="db-add-account-protocols.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/data/use-cases/add-account/db-add-account-protocols.ts">
-        <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-      </file>
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="db-add-account.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/data/use-cases/add-account/db-add-account.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="1" type="stmt"/>
@@ -59,7 +52,13 @@
       </file>
     </package>
     <package name="presentation.errors">
-      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="index.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/presentation/errors/index.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
       <file name="invalid-param-error.ts" path="/mnt/c/Users/ipereira/Documents/personal-projects/clean-node-api/src/presentation/errors/invalid-param-error.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
