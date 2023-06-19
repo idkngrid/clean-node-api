@@ -17,11 +17,9 @@ module.exports = {
     '!**/protocols/**'
   ],
 
-  // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
-  testEnvironment: 'node',
-
-  // A map from regular expressions to paths to transformers
+  // testEnvironment: 'node',
+  preset: '@shelf/jest-mongodb',
   transform: {
     '.+\\.ts$': 'ts-jest'
   }
