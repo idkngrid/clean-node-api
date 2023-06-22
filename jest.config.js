@@ -4,9 +4,9 @@ module.exports = {
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
     // '**/src/**/*.ts',
-    // '**/src/main/**', 
-    // '**/src/**/*-protocols.ts', 
-    // '!**/protocols/**', 
+    // '**/src/main/**',
+    // '**/src/**/*-protocols.ts',
+    // '!**/protocols/**',
     // '!**/test/**',
     // 'src/**/*.ts',
     // '!src/**/index.ts',
