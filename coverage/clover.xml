@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700834212889" clover="3.2.0">
-  <project timestamp="1700834212889" name="All files">
+<coverage generated="1700846090577" clover="3.2.0">
+  <project timestamp="1700846090577" name="All files">
     <metrics statements="79" coveredstatements="78" conditionals="10" coveredconditionals="10" methods="19" coveredmethods="19" elements="108" coveredelements="107" complexity="0" loc="79" ncloc="79" packages="9" files="12" classes="12"/>
     <package name="data.use-cases.add-account">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
