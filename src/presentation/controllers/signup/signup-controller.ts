@@ -2,11 +2,10 @@ import type { HttpResponse, HttpRequest, Controller, AddAccount, Validation } fr
 import { badRequest, serverError, ok } from '../../helpers/http/http-helper'
 
 export class SignUpController implements Controller {
-  private readonly addAcount: AddAccount
-  private readonly validation: Validation
-
-  constructor (addAccount: AddAccount, validation: Validation) {
-    this.addAcount = addAccount
+  constructor (
+    private readonly addAccount: AddAccount,
+    private readonly validation: Validation) {
+    this.addAccount = addAccount
     this.validation = validation
   }
 
@@ -17,7 +16,7 @@ export class SignUpController implements Controller {
         return badRequest(error)
       }
       const { name, email, password } = httpRequest.body
-      const account = await this.addAcount.add({
+      const account = await this.addAccount.add({
         name,
         email,
         password
